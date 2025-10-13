@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
 // TODO: Importar suas imagens reais de projetos
-import project1 from "@/assets/project1.jpg";
+import project1 from "/public/img/projects/BarberShopSystem.png";
 import project2 from "@/assets/project2.jpg";
 import project3 from "@/assets/project3.jpg";
 import project4 from "@/assets/project4.jpg";
@@ -21,11 +21,12 @@ const Projects = () => {
   const projects = [
     {
       title: "BarberShopSystem",
-      description: "Sistema de agendamento com Clean Architecture, JWT e EF Core.",
+      description:
+        "Sistema de agendamento com Clean Architecture, JWT e EF Core.",
       image: project1,
       tags: ["C#", ".NET", "EF Core", "JWT"],
-      github: "#", // TODO: Trocar pelo link do GitHub
-      demo: "", // TODO: Adicionar demo se houver
+      github: "https://github.com/GabrielAlvesGG/BarbeShopingSystem", // TODO: Trocar pelo link do GitHub
+      demo: "http://localhost:5276", // TODO: Adicionar demo se houver
     },
     {
       title: "CertaconAPI",
@@ -132,7 +133,11 @@ const Projects = () => {
                       className="flex-1 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all group/btn"
                       asChild
                     >
-                      <a href={project.github} target="_blank" rel="noopener noreferrer">
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <Github className="w-4 h-4 mr-2" />
                         GitHub
                       </a>
@@ -144,7 +149,11 @@ const Projects = () => {
                         className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90 transition-all group/btn"
                         asChild
                       >
-                        <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                        <a
+                          href={project.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           <ExternalLink className="w-4 h-4 mr-2 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                           Demo
                         </a>
