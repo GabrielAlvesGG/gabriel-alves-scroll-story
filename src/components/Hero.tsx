@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import avatarImage from "@/assets/avatar.jpg";
 
 const Hero = () => {
   const scrollToSection = (id: string) => {
@@ -37,8 +36,7 @@ const Hero = () => {
               transition={{ delay: 0.2 }}
               className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold mb-4"
             >
-              Olá, sou{" "}
-              <span className="text-primary">Gabriel Alves</span>
+              Olá, sou <span className="text-primary">Gabriel Alves</span>
             </motion.h1>
 
             <motion.h2
@@ -47,7 +45,8 @@ const Hero = () => {
               transition={{ delay: 0.4 }}
               className="text-2xl md:text-3xl font-heading font-semibold text-muted-foreground mb-6"
             >
-              Desenvolvedor .NET e Vue.js focado em performance e arquitetura limpa.
+              Desenvolvedor .NET e Vue.js focado em performance e arquitetura
+              limpa.
             </motion.h2>
 
             <motion.p
@@ -56,7 +55,8 @@ const Hero = () => {
               transition={{ delay: 0.6 }}
               className="text-lg text-muted-foreground mb-8 max-w-lg"
             >
-              Transformo ideias em sistemas web e APIs escaláveis, com código limpo e resultados mensuráveis.
+              Transformo ideias em sistemas web e APIs escaláveis, com código
+              limpo e resultados mensuráveis.
             </motion.p>
 
             <motion.div
@@ -95,10 +95,10 @@ const Hero = () => {
             <div className="relative">
               {/* Glow effect */}
               <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl" />
-              
+
               {/* Avatar */}
               <motion.img
-                src={avatarImage}
+                src="/img/foto_perfil_workana_400x400.jpg" // direct path from public folder
                 alt="Gabriel Alves - Desenvolvedor .NET e Vue.js"
                 className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full object-cover border-4 border-primary/20 shadow-2xl"
                 whileHover={{ scale: 1.05 }}

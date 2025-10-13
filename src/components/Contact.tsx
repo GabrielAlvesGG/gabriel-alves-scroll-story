@@ -23,25 +23,25 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      href: "mailto:seu-email@exemplo.com", // TODO: Trocar pelo seu email
+      href: "mailto:ggdevalves@gmail.com",
       color: "hover:text-red-400",
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      href: "#", // TODO: Trocar pelo seu LinkedIn
+      href: "https://www.linkedin.com/in/gabriel-alves-84725a34a",
       color: "hover:text-blue-400",
     },
     {
       icon: Github,
       label: "GitHub",
-      href: "#", // TODO: Trocar pelo seu GitHub
+      href: "https://github.com/GabrielAlvesGG",
       color: "hover:text-purple-400",
     },
     {
       icon: MessageSquare,
       label: "WhatsApp",
-      href: "#", // TODO: Trocar pelo seu WhatsApp (formato: https://wa.me/5511999999999)
+      href: "https://wa.me/5511949008619?text=Ol%C3%A1%2C%20vi%20seu%20portf%C3%B3lio%20e%20quero%20um%20or%C3%A7amento",
       color: "hover:text-green-400",
     },
   ];
@@ -51,7 +51,11 @@ const Contact = () => {
     setIsSubmitting(true);
 
     // Validação simples
-    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+    if (
+      !formData.name.trim() ||
+      !formData.email.trim() ||
+      !formData.message.trim()
+    ) {
       toast({
         title: "Erro",
         description: "Por favor, preencha todos os campos.",
@@ -73,19 +77,43 @@ const Contact = () => {
       return;
     }
 
-    // TODO: Implementar envio real do formulário (ex: EmailJS, API backend, etc)
-    // Simulação de envio
-    setTimeout(() => {
-      toast({
-        title: "Mensagem enviada!",
-        description: "Obrigado pelo contato. Responderei em breve!",
+    // Envio real para o backend FastAPI
+    try {
+      const response = await fetch("http://localhost:8000/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
-      setFormData({ name: "", email: "", message: "" });
-      setIsSubmitting(false);
-    }, 1500);
+
+      if (response.ok) {
+        toast({
+          title: "Mensagem enviada!",
+          description: "Obrigado pelo contato. Responderei em breve!",
+        });
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        const data = await response.json();
+        toast({
+          title: "Erro",
+          description: data.detail || "Falha ao enviar mensagem.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Erro",
+        description: "Falha de conexão com o servidor.",
+        variant: "destructive",
+      });
+    }
+    setIsSubmitting(false);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
