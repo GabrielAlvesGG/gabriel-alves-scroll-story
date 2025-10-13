@@ -21,12 +21,6 @@ const Contact = () => {
   // TODO: Trocar pelos seus links reais
   const socialLinks = [
     {
-      icon: Mail,
-      label: "Email",
-      href: "mailto:ggdevalves@gmail.com",
-      color: "hover:text-red-400",
-    },
-    {
       icon: Linkedin,
       label: "LinkedIn",
       href: "https://www.linkedin.com/in/gabriel-alves-84725a34a",
@@ -141,7 +135,7 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12"
+            className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12"
           >
             {socialLinks.map((link, index) => {
               const Icon = link.icon;
