@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import fotoPerfil from "../assets/foto_perfil_workana_400x400.jpg";
+import fotoPerfil from "@/assets/foto_perfil_workana_400x400.jpg";
 
 const Hero = () => {
   const scrollToSection = (id: string) => {
