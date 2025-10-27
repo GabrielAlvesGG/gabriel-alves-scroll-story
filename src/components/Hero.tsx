@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import perfil from "/src/assets/foto_perfil_workana_400x400.jpg";
+import perfil from "@/assets/foto_perfil_workana_400x400.jpg";
 
 const Hero = () => {
   const scrollToSection = (id: string) => {
@@ -100,7 +100,6 @@ const Hero = () => {
               {/* Avatar */}
               <motion.img
                 src={perfil}
-                //src="/img/foto_perfil_workana_400x400.jpg" // direct path from public folder
                 alt="Gabriel Alves - Desenvolvedor .NET e Vue.js"
                 className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full object-cover border-4 border-primary/20 shadow-2xl"
                 whileHover={{ scale: 1.05 }}
