@@ -10,7 +10,10 @@ const About = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const techStack = [
-    { category: "Backend", items: ["C#", ".NET 8", "EF Core", "Dapper", "SQL Server"] },
+    {
+      category: "Backend",
+      items: ["C#", ".NET 8", "EF Core", "Dapper", "SQL Server"],
+    },
     { category: "Frontend", items: ["Vue.js", "React", "Tailwind CSS"] },
     { category: "Infra/DevOps", items: ["Git/GitHub", "Nginx", "Azure"] },
   ];
@@ -36,14 +39,15 @@ const About = () => {
               className="space-y-6"
             >
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Sou desenvolvedor de software com mais de 2 anos de experiência criando APIs, 
-                integrações e sistemas web. Meu foco é performance, Clean Architecture e entregas 
-                previsíveis.
+                Sou desenvolvedor de software com mais de 2 anos de experiência
+                criando APIs, integrações e sistemas web. Meu foco é
+                performance, Clean Architecture e entregas previsíveis.
               </p>
 
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Acredito que tecnologia boa simplifica processos e gera valor de negócio. 
-                Busco sempre escrever código limpo, testável e que seja fácil de manter no longo prazo.
+                Acredito que tecnologia boa simplifica processos e gera valor de
+                negócio. Busco sempre escrever código limpo, testável e que seja
+                fácil de manter no longo prazo.
               </p>
 
               {/* TODO: Trocar # pelo seu LinkedIn */}
@@ -52,7 +56,11 @@ const About = () => {
                 className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all group"
                 asChild
               >
-                <a href="#" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://www.linkedin.com/in/gabriel-alves-84725a34a"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Ver meu LinkedIn
                   <ExternalLink className="ml-2 w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </a>
