@@ -22,9 +22,7 @@ const About = () => {
     const url = "https://www.linkedin.com/in/gabriel-alves-84725a34a/";
     const win = window.open(url, "_blank", "noopener,noreferrer");
     if (win) {
-      try {
-        win.opener = null;
-      } catch {}
+      win.opener = null;
     } else {
       window.location.assign(url);
     }
