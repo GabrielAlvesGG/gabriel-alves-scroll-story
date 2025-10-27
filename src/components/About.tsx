@@ -50,16 +50,16 @@ const About = () => {
                 fácil de manter no longo prazo.
               </p>
 
-              {/* TODO: Trocar # pelo seu LinkedIn */}
+              {/* ✅ Ajuste do link do LinkedIn */}
               <Button
+                asChild
                 variant="outline"
                 className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all group"
               >
                 <a
-                  href="https://www.linkedin.com/in/gabriel-alves-84725a34a"
+                  href="https://www.linkedin.com/in/gabriel-alves-84725a34a/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center"
                 >
                   Ver meu LinkedIn
                   <ExternalLink className="ml-2 w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
