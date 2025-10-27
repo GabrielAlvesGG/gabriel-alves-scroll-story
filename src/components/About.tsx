@@ -18,6 +18,18 @@ const About = () => {
     { category: "Infra/DevOps", items: ["Git/GitHub", "Nginx", "Azure"] },
   ];
 
+  const openLinkedIn = () => {
+    const url = "https://www.linkedin.com/in/gabriel-alves-84725a34a/";
+    const win = window.open(url, "_blank", "noopener,noreferrer");
+    if (win) {
+      try {
+        win.opener = null;
+      } catch {}
+    } else {
+      window.location.assign(url);
+    }
+  };
+
   return (
     <section id="about" className="py-20 px-4" ref={ref}>
       <div className="container mx-auto max-w-6xl">
@@ -50,17 +62,11 @@ const About = () => {
                 fácil de manter no longo prazo.
               </p>
 
-              {/* ✅ Ajuste do link do LinkedIn */}
+              {/* ✅ Ajuste do link do LinkedIn com fallback */}
               <Button
                 variant="outline"
                 className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all group"
-                onClick={() =>
-                  window.open(
-                    "https://www.linkedin.com/in/gabriel-alves-84725a34a/",
-                    "_blank",
-                    "noopener,noreferrer"
-                  )
-                }
+                onClick={openLinkedIn}
                 aria-label="Ver meu LinkedIn"
               >
                 Ver meu LinkedIn
