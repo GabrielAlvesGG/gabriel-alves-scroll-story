@@ -54,12 +54,12 @@ const About = () => {
               <Button
                 variant="outline"
                 className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all group"
-                asChild
               >
                 <a
                   href="https://www.linkedin.com/in/gabriel-alves-84725a34a"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="flex items-center"
                 >
                   Ver meu LinkedIn
                   <ExternalLink className="ml-2 w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
