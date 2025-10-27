@@ -42,8 +42,12 @@ All colors MUST be HSL.
 
     /* Custom design tokens */
     --primary-hover: 199 100% 39%;
-    --gradient-radial: radial-gradient(circle at 50% 0%, hsl(199 89% 48% / 0.15), transparent 50%);
-    
+    --gradient-radial: radial-gradient(
+      circle at 50% 0%,
+      hsl(199 89% 48% / 0.15),
+      transparent 50%
+    );
+
     /* Sidebar (keeping original for compatibility) */
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -63,11 +67,16 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', sans-serif;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Poppins", sans-serif;
   }
 
   html {
