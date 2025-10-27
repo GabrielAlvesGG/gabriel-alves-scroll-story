@@ -52,18 +52,19 @@ const About = () => {
 
               {/* ✅ Ajuste do link do LinkedIn */}
               <Button
-                asChild
                 variant="outline"
                 className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all group"
+                onClick={() =>
+                  window.open(
+                    "https://www.linkedin.com/in/gabriel-alves-84725a34a/",
+                    "_blank",
+                    "noopener,noreferrer"
+                  )
+                }
+                aria-label="Ver meu LinkedIn"
               >
-                <a
-                  href="https://www.linkedin.com/in/gabriel-alves-84725a34a/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Ver meu LinkedIn
-                  <ExternalLink className="ml-2 w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                </a>
+                Ver meu LinkedIn
+                <ExternalLink className="ml-2 w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </Button>
             </motion.div>
 
