@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { ExternalLink } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
 const About = () => {
@@ -18,15 +17,7 @@ const About = () => {
     { category: "Infra/DevOps", items: ["Git/GitHub", "Nginx", "Azure"] },
   ];
 
-  const openLinkedIn = () => {
-    const url = "https://www.linkedin.com/in/gabriel-alves-84725a34a/";
-    const win = window.open(url, "_blank", "noopener,noreferrer");
-    if (win) {
-      win.opener = null;
-    } else {
-      window.location.assign(url);
-    }
-  };
+  const LINKEDIN_URL = "https://www.linkedin.com/in/gabriel-alves-84725a34a/";
 
   return (
     <section id="about" className="py-20 px-4" ref={ref}>
@@ -60,16 +51,28 @@ const About = () => {
                 fácil de manter no longo prazo.
               </p>
 
-              {/* ✅ Ajuste do link do LinkedIn com fallback */}
-              <Button
-                variant="outline"
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all group"
-                onClick={openLinkedIn}
+              {/* ✅ Link do LinkedIn como <a> com fallback */}
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => {
+                  const w = window.open(
+                    LINKEDIN_URL,
+                    "_blank",
+                    "noopener,noreferrer"
+                  );
+                  if (!w) {
+                    e.preventDefault();
+                    window.location.assign(LINKEDIN_URL);
+                  }
+                }}
+                className="inline-flex items-center gap-2 rounded-md border border-primary px-4 py-2 text-sm font-medium text-primary transition-all hover:bg-primary hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 aria-label="Ver meu LinkedIn"
               >
                 Ver meu LinkedIn
                 <ExternalLink className="ml-2 w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </Button>
+              </a>
             </motion.div>
 
             {/* Tech Stack */}
