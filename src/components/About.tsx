@@ -50,23 +50,22 @@ const About = () => {
                 negócio. Busco sempre escrever código limpo, testável e que seja
                 fácil de manter no longo prazo.
               </p>
+              <a
+                href="https://www.linkedin.com/in/gabriel-alves-84725a34a/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-md border border-primary px-4 py-2 text-sm font-medium text-primary transition-all hover:bg-primary hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                aria-label="Ver meu LinkedIn"
+              >
+                Ver meu LinkedIn
+                <ExternalLink className="ml-2 w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </a>
 
               {/* ✅ Link do LinkedIn como <a> com fallback */}
               <a
-                href={LINKEDIN_URL}
+                href="https://www.linkedin.com/in/gabriel-alves-84725a34a/"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={(e) => {
-                  const w = window.open(
-                    LINKEDIN_URL,
-                    "_blank",
-                    "noopener,noreferrer"
-                  );
-                  if (!w) {
-                    e.preventDefault();
-                    window.location.assign(LINKEDIN_URL);
-                  }
-                }}
                 className="inline-flex items-center gap-2 rounded-md border border-primary px-4 py-2 text-sm font-medium text-primary transition-all hover:bg-primary hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 aria-label="Ver meu LinkedIn"
               >
