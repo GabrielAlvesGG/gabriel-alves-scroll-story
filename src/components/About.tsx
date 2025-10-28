@@ -57,7 +57,7 @@ const About = () => {
                 className="inline-flex items-center gap-2 rounded-md border border-primary px-4 py-2 text-sm font-medium text-primary transition-all hover:bg-primary hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 aria-label="Ver meu LinkedIn"
               >
-                Ver meu LinkedIn
+                Ver meu LinkedIn sadafadsfdas
                 <ExternalLink className="ml-2 w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </a>
 
@@ -69,7 +69,7 @@ const About = () => {
                 className="inline-flex items-center gap-2 rounded-md border border-primary px-4 py-2 text-sm font-medium text-primary transition-all hover:bg-primary hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 aria-label="Ver meu LinkedIn"
               >
-                Ver meu LinkedIn
+                Ver meu LinkedIn asdfadsfdas
                 <ExternalLink className="ml-2 w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </a>
             </motion.div>
