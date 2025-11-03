@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
 const About = () => {
@@ -17,7 +18,19 @@ const About = () => {
     { category: "Infra/DevOps", items: ["Git/GitHub", "Nginx", "Azure"] },
   ];
 
+  // Requires an element with id="linkedin" near the bottom of the page.
   const LINKEDIN_URL = "https://www.linkedin.com/in/gabriel-alves-84725a34a/";
+  const handleScrollToLinkedIn = () => {
+    const el = document.getElementById("linkedin");
+    if (el) {
+      const margin = 24; // px - keeps the target slightly above the bottom
+      const elTop = el.getBoundingClientRect().top + window.pageYOffset;
+      const target = elTop - (window.innerHeight - el.clientHeight) + margin;
+      window.scrollTo({ top: Math.max(target, 0), behavior: "smooth" });
+    } else {
+      window.open(LINKEDIN_URL, "_blank", "noopener,noreferrer");
+    }
+  };
 
   return (
     <section id="about" className="py-20 px-4" ref={ref}>
@@ -50,28 +63,18 @@ const About = () => {
                 negócio. Busco sempre escrever código limpo, testável e que seja
                 fácil de manter no longo prazo.
               </p>
-              <a
-                href="https://www.linkedin.com/in/gabriel-alves-84725a34a/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-md border border-primary px-4 py-2 text-sm font-medium text-primary transition-all hover:bg-primary hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                aria-label="Ver meu LinkedIn"
-              >
-                Ver meu LinkedIn sadafadsfdas
-                <ExternalLink className="ml-2 w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </a>
 
-              {/* ✅ Link do LinkedIn como <a> com fallback */}
-              <a
-                href="https://www.linkedin.com/in/gabriel-alves-84725a34a/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-md border border-primary px-4 py-2 text-sm font-medium text-primary transition-all hover:bg-primary hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                aria-label="Ver meu LinkedIn"
+              <Button
+                variant="outline"
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all group"
+                type="button"
+                onClick={handleScrollToLinkedIn}
+                aria-label="Deslizar até o LinkedIn"
+                title="Deslizar até o LinkedIn"
               >
-                Ver meu LinkedIn asdfadsfdas
+                Ver meu LinkedIn
                 <ExternalLink className="ml-2 w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </a>
+              </Button>
             </motion.div>
 
             {/* Tech Stack */}
