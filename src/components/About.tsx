@@ -23,24 +23,11 @@ const About = () => {
   const handleScrollToLinkedIn = () => {
     const el = document.getElementById("contact-linkedin");
     if (el) {
-      try {
-        const observer = new IntersectionObserver(
-          (entries, obs) => {
-            if (entries.some((e) => e.isIntersecting)) {
-              (el as HTMLElement).click();
-              obs.disconnect();
-            }
-          },
-          { threshold: 0.6 }
-        );
-        observer.observe(el);
-      } catch {
-        // no-op
-      }
       (el as HTMLElement).scrollIntoView({ behavior: "smooth", block: "end" });
     } else {
       const contact = document.getElementById("contact");
       if (contact) {
+        window.open(LINKEDIN_URL, "_blank", "noopener,noreferrer");
         contact.scrollIntoView({ behavior: "smooth", block: "end" });
       } else {
         window.open(LINKEDIN_URL, "_blank", "noopener,noreferrer");
