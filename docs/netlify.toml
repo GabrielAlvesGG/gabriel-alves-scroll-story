@@ -1,0 +1,10 @@
+# netlify.toml
+[build]
+  command = "bun run build"
+  publish = "docs"
+
+# If this is a SPA (React/Vue/etc.), keep client-side routes working:
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
