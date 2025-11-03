@@ -18,17 +18,33 @@ const About = () => {
     { category: "Infra/DevOps", items: ["Git/GitHub", "Nginx", "Azure"] },
   ];
 
-  // Requires an element with id="linkedin" near the bottom of the page.
+  // Target the LinkedIn link in Contact.tsx
   const LINKEDIN_URL = "https://www.linkedin.com/in/gabriel-alves-84725a34a/";
   const handleScrollToLinkedIn = () => {
-    const el = document.getElementById("linkedin");
+    const el = document.getElementById("contact-linkedin");
     if (el) {
-      const margin = 24; // px - keeps the target slightly above the bottom
-      const elTop = el.getBoundingClientRect().top + window.pageYOffset;
-      const target = elTop - (window.innerHeight - el.clientHeight) + margin;
-      window.scrollTo({ top: Math.max(target, 0), behavior: "smooth" });
+      try {
+        const observer = new IntersectionObserver(
+          (entries, obs) => {
+            if (entries.some((e) => e.isIntersecting)) {
+              (el as HTMLElement).click();
+              obs.disconnect();
+            }
+          },
+          { threshold: 0.6 }
+        );
+        observer.observe(el);
+      } catch {
+        // no-op
+      }
+      (el as HTMLElement).scrollIntoView({ behavior: "smooth", block: "end" });
     } else {
-      window.open(LINKEDIN_URL, "_blank", "noopener,noreferrer");
+      const contact = document.getElementById("contact");
+      if (contact) {
+        contact.scrollIntoView({ behavior: "smooth", block: "end" });
+      } else {
+        window.open(LINKEDIN_URL, "_blank", "noopener,noreferrer");
+      }
     }
   };
 

@@ -18,7 +18,6 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // TODO: Trocar pelos seus links reais
   const socialLinks = [
     {
       icon: Linkedin,
